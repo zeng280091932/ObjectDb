@@ -1,4 +1,4 @@
-package com.beauney.objectdb.db.manager;
+package com.beauney.objectdb.commondb.manager;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.beauney.objectdb.db.DBOpenHelper;
+import com.beauney.objectdb.commondb.DBOpenHelper;
 import com.beauney.objectdb.model.User;
 
 import java.util.ArrayList;

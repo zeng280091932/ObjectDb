@@ -1,15 +1,21 @@
 package com.beauney.objectdb.model;
 
+import com.beauney.objectdb.db.annotation.DbField;
+import com.beauney.objectdb.db.annotation.DbTable;
+
 import java.io.Serializable;
 
 /**
  * @author zengjiantao
  * @since 2020-07-30
  */
+@DbTable("t_user")
 public class User implements Serializable {
 
+    @DbField("t_username")
     private String username;
 
+    @DbField("t_password")
     private String password;
 
     public String getUsername() {

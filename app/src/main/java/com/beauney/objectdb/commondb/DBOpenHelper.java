@@ -1,10 +1,10 @@
-package com.beauney.objectdb.db;
+package com.beauney.objectdb.commondb;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.beauney.objectdb.db.manager.UserDBHelper;
+import com.beauney.objectdb.commondb.manager.UserDBHelper;
 
 import androidx.annotation.Nullable;
 

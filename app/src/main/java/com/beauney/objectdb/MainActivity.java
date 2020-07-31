@@ -2,14 +2,15 @@ package com.beauney.objectdb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.beauney.objectdb.db.manager.UserDBHelper;
+import com.beauney.objectdb.commondb.manager.UserDBHelper;
+import com.beauney.objectdb.db.BaseDaoFactory;
+import com.beauney.objectdb.db.UserDao;
 import com.beauney.objectdb.model.User;
 
 import java.util.List;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText mPasswordEdt;
 
+    private UserDao<User> mUserDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 
         mUsernameEdt = findViewById(R.id.username);
         mPasswordEdt = findViewById(R.id.password);
+
+        mUserDao = BaseDaoFactory.getInstance().getDataHelper(UserDao.class, User.class);
     }
 
     public void addData(View view) {
@@ -39,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        UserDBHelper.getInstance(this).insert(user);
+        mUserDao.insert(user);
+//        UserDBHelper.getInstance(this).insert(user);
     }
 
     public void delData(View view) {
@@ -48,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
             showToast("不能输入空数据");
             return;
         }
-        UserDBHelper.getInstance(this).delete(username);
+        User where = new User();
+        where.setUsername(username);
+        mUserDao.delete(where);
+//        UserDBHelper.getInstance(this).delete(username);
         showToast("删除数据");
     }
 
@@ -62,7 +71,10 @@ public class MainActivity extends AppCompatActivity {
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
-        UserDBHelper.getInstance(this).update(user);
+        User where = new User();
+        where.setUsername(username);
+        mUserDao.update(user, where);
+//        UserDBHelper.getInstance(this).update(user);
         showToast("修改数据");
     }
 
