@@ -79,7 +79,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void selectData(View view) {
-        List<User> users = UserDBHelper.getInstance(this).findAll();
+//        List<User> users = UserDBHelper.getInstance(this).findAll();
+        String username = mUsernameEdt.getText().toString();
+        User where = null;
+        if (!TextUtils.isEmpty(username)) {
+            where = new User();
+            where.setUsername(username);
+        }
+        List<User> users = mUserDao.query(where);
         showToast("查询数据:" + users);
     }
 
