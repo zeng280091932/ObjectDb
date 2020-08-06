@@ -20,7 +20,7 @@ import java.util.List;
 public abstract class BaseDao<T> implements IBaseDao<T> {
     private static final String TAG = "BaseDao";
 
-    private SQLiteDatabase mSQLiteDatabase;
+    protected SQLiteDatabase mSQLiteDatabase;
 
     /**
      * 实例类的引用
@@ -120,11 +120,11 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
                         if (type.equals(String.class)) {
                             field.set(item, cursor.getString(columnIndex));
                         } else if (type.equals(Integer.class)) {
-                            field.setInt(item, cursor.getInt(columnIndex));
+                            field.set(item, cursor.getInt(columnIndex));
                         } else if (type.equals(Long.class)) {
-                            field.setLong(item, cursor.getLong(columnIndex));
+                            field.set(item, cursor.getLong(columnIndex));
                         } else if (type.equals(Double.class)) {
-                            field.setDouble(item, cursor.getDouble(columnIndex));
+                            field.set(item, cursor.getDouble(columnIndex));
                         } else if (type.equals(byte[].class)) {
                             field.set(item, cursor.getBlob(columnIndex));
                         }
@@ -214,5 +214,9 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
             contentValues.put(columnName, object.toString());
         }
         return contentValues;
+    }
+
+    public String getTableName() {
+        return mTableName;
     }
 }
