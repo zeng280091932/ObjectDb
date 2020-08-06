@@ -8,9 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.beauney.objectdb.commondb.manager.UserDBHelper;
-import com.beauney.objectdb.db.BaseDaoFactory;
-import com.beauney.objectdb.db.UserDao;
+import com.beauney.objectdb.dao.UserDao;
 import com.beauney.objectdb.model.User;
 
 import java.util.List;

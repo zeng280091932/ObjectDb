@@ -1,4 +1,6 @@
-package com.beauney.objectdb.db;
+package com.beauney.objectdb.dao;
+
+import com.beauney.objectdb.BaseDao;
 
 /**
  * @author zengjiantao

@@ -1,4 +1,4 @@
-package com.beauney.objectdb.db;
+package com.beauney.objectdb;
 
 import java.util.List;
 

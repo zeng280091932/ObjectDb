@@ -1,4 +1,4 @@
-package com.beauney.objectdb.db;
+package com.beauney.objectdb;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -6,8 +6,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.beauney.objectdb.db.annotation.DbField;
-import com.beauney.objectdb.db.annotation.DbTable;
+
+import com.beauney.objectdb.annotation.DbField;
+import com.beauney.objectdb.annotation.DbTable;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

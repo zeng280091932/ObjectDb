@@ -1,7 +1,8 @@
 package com.beauney.objectdb.model;
 
-import com.beauney.objectdb.db.annotation.DbField;
-import com.beauney.objectdb.db.annotation.DbTable;
+
+import com.beauney.objectdb.annotation.DbField;
+import com.beauney.objectdb.annotation.DbTable;
 
 import java.io.Serializable;
 
